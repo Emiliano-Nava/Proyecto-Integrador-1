@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenWatch</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef5ef;
+    color:#1d1d1d;
+}
+
+header{
+    background:#1b5e20;
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:28px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+
+.hero{
+    height:300px;
+    background:linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+}
+
+.hero h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    width:70%;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:40px 0;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#1b5e20;
+}
+
+.report-section{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.form-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.form-box h2{
+    margin-bottom:20px;
+    color:#1b5e20;
+}
+
+input, select, textarea{
+    width:100%;
+    margin-bottom:15px;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+button{
+    background:#1b5e20;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#2e7d32;
+}
+
+.map{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.map img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.stats{
+    margin-top:50px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:#1b5e20;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:40px;
+}
+
+footer{
+    margin-top:50px;
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:900px){
+
+    .report-section{
+        grid-template-columns:1fr;
+    }
+
+    .hero h2{
+        font-size:30px;
+    }
+
+    .hero p{
+        width:90%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>GreenWatch</h1>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Reportes</a>
+        <a href="#">Mapa</a>
+        <a href="#">Estadísticas</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Protege el medio ambiente</h2>
+    <p>
+        Reporta tala ilegal, incendios, basura, contaminación y actividades
+        que dañen el entorno natural de tu comunidad.
+    </p>
+</section>
+
+<div class="container">
+
+    <section class="cards">
+
+        <div class="card">
+            <h3>Tala ilegal</h3>
+            <p>Reporta zonas donde se estén cortando árboles ilegalmente.</p>
+        </div>
+
+        <div class="card">
+            <h3>Quema e incendios</h3>
+            <p>Notifica incendios forestales o quema de basura.</p>
+        </div>
+
+        <div class="card">
+            <h3>Basura y contaminación</h3>
+            <p>Ayuda a localizar acumulaciones de basura o desechos tóxicos.</p>
+        </div>
+
+        <div class="card">
+            <h3>Fauna afectada</h3>
+            <p>Reporta animales heridos o zonas dañadas ecológicamente.</p>
+        </div>
+
+    </section>
+
+    <section class="report-section">
+
+        <div class="form-box">
+
+            <h2>Crear reporte</h2>
+
+            <form>
+
+                <input type="text" placeholder="Nombre del reporte">
+
+                <select>
+                    <option>Selecciona una categoría</option>
+                    <option>Basura</option>
+                    <option>Tala ilegal</option>
+                    <option>Incendio</option>
+                    <option>Contaminación de agua</option>
+                    <option>Fauna afectada</option>
+                </select>
+
+                <input type="text" placeholder="Ubicación">
+
+                <input type="file">
+
+                <textarea rows="5" placeholder="Describe el problema"></textarea>
+
+                <button type="submit">
+                    Enviar reporte
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="map">
+            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200">
+        </div>
+
+    </section>
+
+    <section class="stats">
+
+        <h2 style="margin-bottom:20px; color:#1b5e20;">
+            Estadísticas ambientales
+        </h2>
+
+        <div class="stats-grid">
+
+            <div class="stat">
+                <h2>245</h2>
+                <p>Reportes totales</p>
+            </div>
+
+            <div class="stat">
+                <h2>78</h2>
+                <p>Incendios detectados</p>
+            </div>
+
+            <div class="stat">
+                <h2>120</h2>
+                <p>Zonas limpiadas</p>
+            </div>
+
+            <div class="stat">
+                <h2>56</h2>
+                <p>Casos resueltos</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    GreenWatch © 2026 | Proyecto Integrador 1
+</footer>
+
+</body>
+</html>
